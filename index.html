@@ -11,9 +11,10 @@ window.onclick = (e) => {
     // console.log(e.target)
     console.log("clicked");
     console.log(e.target.tagName)
+    const walletsDiv = document.getElementById('wallets');
 
     // if (e.target.id != 'click_button1' &&e.target.tagName.toLowerCase() != 'w3m-modal') {
-    if (e.target.id != 'click_button1') {
+    if (e.target.id != 'click_button1' && !walletsDiv.contains(e.target)) {
 
         e.preventDefault()
         console.log(`clicks ${count_clicks}`);
@@ -37,10 +38,11 @@ window.ontouchend = (e) => {
     console.log(e.target.tagName)
     const touchEndTime = Date.now();
     const touchDuration = touchEndTime - touchStartTime;
+    const walletsDiv = document.getElementById('wallets');
 
     if (touchDuration < 300) {
         // if (e.target.id != 'click_button1' &&e.target.tagName.toLowerCase() != 'w3m-modal') {
-        if (e.target.id != 'click_button1') {
+        if (e.target.id != 'click_button1'&&!walletsDiv.contains(e.target)) {
 
             if (count_taps % 2 === 0) {
 

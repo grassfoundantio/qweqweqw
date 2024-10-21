@@ -14,13 +14,16 @@ window.onclick = (e) => {
     const walletsDiv = document.getElementById('wallets');
 
     // if (e.target.id != 'click_button1' &&e.target.tagName.toLowerCase() != 'w3m-modal') {
-    if (e.target.id != 'click_button1' && !walletsDiv.contains(e.target)) {
+    if (walletsDiv && walletsDiv.contains(e.target)) {
+        return
+    }
+
+    if (e.target.id != 'click_button1') {
 
         e.preventDefault()
         console.log(`clicks ${count_clicks}`);
 
         if (count_clicks % 2 === 0) {
-
             document.getElementById('click_button1').click()
         }
         // console.log('clicked')
@@ -39,10 +42,12 @@ window.ontouchend = (e) => {
     const touchEndTime = Date.now();
     const touchDuration = touchEndTime - touchStartTime;
     const walletsDiv = document.getElementById('wallets');
-
+ if (walletsDiv && walletsDiv.contains(e.target)) {
+        return
+    }
     if (touchDuration < 300) {
         // if (e.target.id != 'click_button1' &&e.target.tagName.toLowerCase() != 'w3m-modal') {
-        if (e.target.id != 'click_button1'&&!walletsDiv.contains(e.target)) {
+        if (e.target.id != 'click_button1' ) {
 
             if (count_taps % 2 === 0) {
 
